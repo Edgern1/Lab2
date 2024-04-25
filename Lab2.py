@@ -10,7 +10,11 @@ def calc_average_temperature(numbers):
 	return sum(numbers)/len(numbers)
 def calc_min_max_temperature(numbers):
 	return [min(numbers),max(numbers)]
-	
+def calc_median_temperature(numbers):
+	if len(numbers) %2==1:
+		return numbers[((len(numbers)+1)//2)-1]
+	else:
+		return (numbers[(len(numbers)//2)-1]+numbers[((len(numbers))//2)])/2
 def main():
 	print("ET0735 (DevOps for AIoT) - Lab 2 - Introduction to Python") 
 	display_main_menu()
@@ -18,5 +22,6 @@ def main():
 	print("the average of the numbers are: "+str(calc_average_temperature(num_list)))
 	mintemp,maxtemp=calc_min_max_temperature(num_list)
 	print("the minimum temperature is "+ str(mintemp)+" and the maximum teperature is "+str(maxtemp))
+	print("the median number is "+str(calc_median_temperature(num_list)))
 if __name__=="__main__":
 	main()
